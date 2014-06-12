@@ -1,0 +1,32 @@
+{% if users %}
+    <p>
+    Пользователи:
+    {% for user_id in users %}
+        <a href="?user_id={{ user_id }}">{{ user_id }}</a>
+        {% if not forloop.last %}|{% endif %}
+    {% endfor %}
+    </p>
+{% endif %}
+{% if pages %}
+    <p>
+    Страницы:
+    {% for page_id in pages %}
+        <a href="?page_id={{ page_id }}">{{ page_id }}</a>
+        {% if not forloop.last %}|{% endif %}
+    {% endfor %}
+    </p>
+{% endif %}
+{% if dates %}
+    <p>
+    Даты:
+    {% for date in dates %}
+        <a href="?date={{ date.date.isoformat }}">{{ date.date }}</a>
+        {% if not forloop.last %}|{% endif %}
+    {% endfor %}
+    </p>
+{% endif %}
+<ul>
+    {% for hit in hit_list %}
+        <li>{{ hit }}</li>
+    {% endfor %}
+</ul>
